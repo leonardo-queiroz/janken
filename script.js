@@ -49,10 +49,14 @@ function playRound(playerSelection, computerSelection) {
             alert("It's a Tie! I also picked Scissors.");
             return "tie";
         }
+    }
+}
 
+function validChoice(input) {
+    if (input === "rock" || input === "paper" || input === "scissors") {
+        return true;
     } else {
-        alert("You didn't pick rock, paper or scissors!");
-        playRound();
+        return false;
     }
 }
 
@@ -64,8 +68,16 @@ function game() {
     let round;
     let playAgain;
 
+    alert("<#*#*#>    Jokenpo!    <#*#*#>\n\n" + 
+    "Rules:\n- This is a best of 5\n- You can choose between rock, paper or scissors\n\n" +
+    "Press OK to Start!");
+
     for (let i = 0; i < 5; i++) {
-        playerChoice = (prompt("***Jokenpo!***\nRock, Paper or Scissors?")).toLowerCase();
+        playerChoice = (prompt("Rock, Paper or Scissors?")).toLowerCase();
+        while(!validChoice(playerChoice)) {
+            alert("You didn't pick rock, paper or scissors!");
+            playerChoice = (prompt("Rock, Paper or Scissors?")).toLowerCase();            
+        }
         round = playRound(playerChoice, getComputerChoice());
         if (round === "win") {
             winCount++;
@@ -76,29 +88,29 @@ function game() {
         }
     }
 
-    alert(`Here's how our match went:\n- You won ${winCount} round(s)\n`+
+    alert(`Here's how our game went:\n- You won ${winCount} round(s)\n`+
     `- You lost ${lossCount} round(s)\n- We tied ${tieCount} round(s)`);
-    console.log(`Here's how our match went:\n- You won ${winCount} round(s)\n`+
+    console.log(`Here's how our game went:\n- You won ${winCount} round(s)\n`+
     `- You lost ${lossCount} round(s)\n- We tied ${tieCount} round(s)`);
 
     if (winCount > lossCount) {
-        alert("*****You Win!! ò.ó*****");
-        console.log("*****You Win!! ò.ó*****");
-        playAgain = confirm("Give me another chance and I'll beat you");
+        alert("****************\n\n       You Win!!       \n\n****************");
+        console.log("****************\n\n       You Win!!       \n\n****************");
+        playAgain = confirm("Give me another chance and I'll beat you (¬､¬)");
         if (playAgain) {
             game();
         }
 
     } else if (lossCount > winCount) {
-        alert("*You Lose! ;)*");
-        console.log("*You Lose! ;)*");
-        playAgain = confirm("Would you like to try again?");
+        alert("XxXxXxXxXxXxXxX\n\n       You Lose!       \n\nXxXxXxXxXxXxXxX");
+        console.log("XxXxXxXxXxXxXxX\n\n       You Lose!       \n\nXxXxXxXxXxXxXxX");
+        playAgain = confirm("Would you like to try again? ;)");
         if (playAgain) {
             game();
         }
     } else if (winCount == lossCount) {
-        alert("**We Tied!**  ¯\\_(ツ)_/¯");
-        console.log("**We Tied!**  ¯\\_(ツ)_/¯");
+        alert("*#*#*#*#*#*#*#*\n\nWe Tied!  ¯\\_(ツ)_/¯\n\n*#*#*#*#*#*#*#*");
+        console.log("*#*#*#*#*#*#*#*\n\nWe Tied!  ¯\\_(ツ)_/¯\n\n*#*#*#*#*#*#*#*");
         playAgain = confirm("Would you like to play again?");
         if (playAgain) {
             game();
