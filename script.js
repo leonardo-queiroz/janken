@@ -1,3 +1,21 @@
+const rock = document.querySelector("#rock");
+rock.addEventListener("click", playRound("rock", getComputerChoice()));
+const paper = document.querySelector("#paper");
+paper.addEventListener("click", playRound("paper", getComputerChoice()));
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener("click", playRound("scissors", getComputerChoice()));
+
+const roundResults = document.createElement("p");
+roundResults.setAttribute("id", "round-results");
+const finalResults = document.createElement("p");
+finalResults.setAttribute("id", "final-results");
+
+
+let winCount = 0;
+let tieCount = 0;
+let lossCount = 0;
+
+
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
     const randomChoice = Math.floor(Math.random() * options.length);    
@@ -52,27 +70,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function validChoice(input) {
-    if (input === "rock" || input === "paper" || input === "scissors") {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 function game() {
     let winCount = 0;
     let tieCount = 0;
     let lossCount = 0;
-    let playerChoice;
     let round;
     let playAgain;
 
-    alert("<#*#*#>    Jokenpo!    <#*#*#>\n\n" + 
-    "Rules:\n- This is a best of 5\n- You can choose between rock, paper or scissors\n\n" +
-    "Press OK to Start!");
-
-    for (let i = 0; i < 5; i++) {
+    /* for (let i = 0; i < 5; i++) {
         playerChoice = (prompt("Rock, Paper or Scissors?")).toLowerCase();
         while(!validChoice(playerChoice)) {
             alert("You didn't pick rock, paper or scissors!");
@@ -86,7 +91,7 @@ function game() {
         } else if (round === "loss") {
             lossCount++;
         }
-    }
+    } */
 
     alert(`Here's how our game went:\n- You won ${winCount} round(s)\n`+
     `- You lost ${lossCount} round(s)\n- We tied ${tieCount} round(s)`);
@@ -117,5 +122,3 @@ function game() {
         }
     }    
 }
-
-game();
