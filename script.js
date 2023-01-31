@@ -5,8 +5,11 @@ paper.addEventListener("click", playRound("paper", getComputerChoice()));
 const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", playRound("scissors", getComputerChoice()));
 
+const resultsDiv = document.querySelector("#results");
 const roundResults = document.createElement("p");
 roundResults.setAttribute("id", "round-results");
+const gameResults = document.createElement("p");
+gameResults.setAttribute("id", "game-results");
 const finalResults = document.createElement("p");
 finalResults.setAttribute("id", "final-results");
 
@@ -25,47 +28,47 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
         if (computerSelection === "rock") {
-            console.log("It's a Tie! I also picked Rock.");
-            alert("It's a Tie! I also picked Rock.");
-            return "tie";
+            roundResults.textContent = "It's a Tie! I also picked Rock.";
+            resultsDiv.appendChild(roundResults);
+            tieCount++;
         } else if (computerSelection === "paper") {
-            console.log("You Lose! Rock loses to Paper.");
-            alert("You Lose! Rock loses to Paper.");
-            return "loss";
+            roundResults.textContent = "You Lose! Rock loses to Paper.";
+            resultsDiv.appendChild(roundResults);
+            lossCount++;           
         } else if (computerSelection === "scissors") {
-            console.log("You Win!! Rock beats Scissors!!");
-            alert("You Win!! Rock beats Scissors!!");
-            return "win";
+            roundResults.textContent = "You Win!! Rock beats Scissors!!";
+            resultsDiv.appendChild(roundResults);
+            winCount++;
         }
 
     } else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
-            console.log("You Win!! Paper beats Rock!!");
-            alert("You Win!! Paper beats Rock!!");
-            return "win";
+            roundResults.textContent = "You Win!! Paper beats Rock!!";
+            resultsDiv.appendChild(roundResults);
+            winCount++;
         } else if (computerSelection === "paper") {
-            console.log("It's a Tie! I also picked Paper.");
-            alert("It's a Tie! I also picked Paper.");
-            return "tie";
+            roundResults.textContent = "It's a Tie! I also picked Paper.";
+            resultsDiv.appendChild(roundResults);
+            tieCount++;        
         } else if (computerSelection === "scissors") {
-            console.log("You Lose! Paper loses to Scissors.");
-            alert("You Lose! Paper loses to Scissors.");
-            return "loss";
+            roundResults.textContent = "You Lose! Paper loses to Rock.";
+            resultsDiv.appendChild(roundResults);
+            lossCount++;   
         }
 
     } else if (playerSelection === "scissors") {
         if (computerSelection === "rock") {
-            console.log("You Lose! Scissors loses to Rock.");
-            alert("You Lose! Scissors loses to Rock.");
-            return "loss";
+            roundResults.textContent = "You Lose! Scissors loses to Rock.";
+            resultsDiv.appendChild(roundResults);
+            lossCount++;   
         } else if (computerSelection === "paper") {
-            console.log("You Win!! Scissors beats Paper!!");
-            alert("You Win!! Scissors beats Paper!!");
-            return "win";
+            roundResults.textContent = "You Win!! Scissors beats Paper!!";
+            resultsDiv.appendChild(roundResults);
+            winCount++;
         } else if (computerSelection === "scissors") {
-            console.log("It's a Tie! I also picked Scissors.");
-            alert("It's a Tie! I also picked Scissors.");
-            return "tie";
+            roundResults.textContent = "It's a Tie! I also picked Rock.";
+            resultsDiv.appendChild(roundResults);
+            tieCount++;
         }
     }
 }
