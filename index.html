@@ -10,15 +10,33 @@
 </head>
 <body>
     <div id="intro">
-        <h1><#*#*#>    Jokenpo!    <#*#*#></h1>
-        <h3>Do you want to play a game of Rock, Paper, Scissors with me?</h3>
-        <h3>Each victory gives a point. The first to get 5 points wins the game!</h3>
+        <h1>Rock, Paper, Scissors!!</h1>
+        <h3>The first player to get 5 points, wins the game! </h3>
     </div>
-    <div id="player-selection">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+    
+    <div id="board">
+        <h2 class="vertical-text">PLAYER</h2>
+        <div class="game-sides" id="player-side">
+            <div id="player-selection">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+            <p class="points hidden" id="player-points">+1 Point!</p>
+            <div class="choice" id="player-choice">
+
+            </div>
+        </div>
+        
+        <div class="game-sides" id="computer-side">            
+            <div class="choice" id="computer-choice">
+
+            </div>
+            <p class="points hidden" id="cpu-points">+1 Point!</p>
+        </div>
+        <h2 class="vertical-text">CPU</h2>
     </div>
+    
     <div id="score">
         <div class="score-points">
             <p>WINS</p>
@@ -33,8 +51,9 @@
             <p id="score-tie">0</p>
         </div>
     </div>
-    <div id="results"></div>
-    <div class="hidden" id="reset">
+    
+    <div class="hidden" id="results">
+        <p id="final-results"></p>
         <p id="reset-message"></p>
         <button id="play-again">YES</button>
         <button id="not-again">NO</button>

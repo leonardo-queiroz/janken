@@ -1,3 +1,13 @@
 .hidden {
     visibility: hidden;
 }
+
+.vertical-text {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+#board {
+    display: flex;
+    flex-direction: row;
+}
