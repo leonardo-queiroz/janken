@@ -9,10 +9,15 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="intro">
+    <header id="intro">
         <h1>Rock, Paper, Scissors!!</h1>
-        <h3>The first player to get 5 points, wins the game! </h3>
-    </div>
+        <button id="instructions-toggle">How to Play</button>
+        <button id="reset-button">Reset</button>
+        <div class="hidden" id="instructions">
+            <p> - First to get 5 points, wins the game.</p>
+            <img src="" alt="">
+        </div>
+    </header>
     
     <div id="board">
         <h2 class="vertical-text">PLAYER</h2>
@@ -23,16 +28,16 @@
                 <button id="scissors">Scissors</button>
             </div>
             <p class="points hidden" id="player-points">+1 Point!</p>
-            <div class="choice" id="player-choice">
-
+            <div class="choice">
+                <img id="player-img" src="" alt="">
             </div>
         </div>
         
         <div class="game-sides" id="computer-side">            
-            <div class="choice" id="computer-choice">
-
+            <div class="choice">
+                <img id="computer-img" src="" alt="">
             </div>
-            <p class="points hidden" id="cpu-points">+1 Point!</p>
+            <p class="points hidden" id="computer-points">+1 Point!</p>
         </div>
         <h2 class="vertical-text">CPU</h2>
     </div>

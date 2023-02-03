@@ -1,15 +1,26 @@
+const resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener("click", function() {
+    resetGame();
+});
+
 const rock = document.querySelector("#rock");
 rock.addEventListener("click", function() {
-    playRound("rock", getComputerChoice())
+    playRound("rock", getComputerChoice());
 });
 const paper = document.querySelector("#paper");
 paper.addEventListener("click", function() {
-    playRound("paper", getComputerChoice())
+    playRound("paper", getComputerChoice());
 });
 const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", function() {
-    playRound("scissors", getComputerChoice())
+    playRound("scissors", getComputerChoice());
 });
+
+const playerImage = document.querySelector("#player-img");
+const computerImage = document.querySelector("#computer-img");
+
+const playerPoints = document.querySelector("#player-points");
+const computerPoints = document.querySelector("#computer-points");
 
 const winScore = document.querySelector("#score-win");
 const lossScore = document.querySelector("#score-loss");
@@ -21,7 +32,7 @@ const resetMsg = document.querySelector("#reset-message");
 
 const playAgainBtn = document.querySelector("#play-again");
 playAgainBtn.addEventListener("click", function() {
-   resetGame();    
+   resetGame();
 })
 const notAgainBtn = document.querySelector("#not-again");
 notAgainBtn.addEventListener("click", function() {
@@ -34,8 +45,21 @@ let tieCount = 0;
 
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
-    const randomChoice = Math.floor(Math.random() * options.length);    
-    return options[randomChoice];
+    const randomChoice = Math.floor(Math.random() * options.length);
+    const computerChoice = options[randomChoice];
+    
+    if (computerChoice === "rock") {
+        computerImage.setAttribute("src", "");
+        computerImage.setAttribute("alt", "CPU picked Rock");
+    } else if (computerChoice === "paper") {
+        computerImage.setAttribute("src", "");
+        computerImage.setAttribute("alt", "CPU picked Paper");
+    } else if (computerChoice === "scissors") {
+        computerImage.setAttribute("src", "");
+        computerImage.setAttribute("alt", "CPU picked Scissors");
+    }
+
+    return computerChoice;
 }
 
 function renderScore() {
@@ -49,46 +73,68 @@ function resetGame() {
     lossCount = 0;
     tieCount = 0;
     renderScore();
+    
     rock.disabled = false;
     paper.disabled = false;
     scissors.disabled = false;
+    
     resetMsg.textContent = "";
     finalResults.textContent = "";
+    
+    playerImage.setAttribute("src", "");
+    playerImage.setAttribute("alt", "");
+    computerImage.setAttribute("src", "");
+    computerImage.setAttribute("alt", "");
     resultsDiv.classList.add("hidden");
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "rock") {
+    if (playerSelection === "rock") {        
+        playerImage.setAttribute("src", "");
+        playerImage.setAttribute("alt", "You picked Rock");
+
         if (computerSelection === "rock") {
             tieCount++;
             renderScore();            
         } else if (computerSelection === "paper") {
             lossCount++;
-            renderScore();           
+            renderScore();
+            computerPoints.classList.add("points-animation");                       
         } else if (computerSelection === "scissors") {
             winCount++;
             renderScore();
+            playerPoints.classList.add("points-animation");
         }
 
     } else if (playerSelection === "paper") {
+        playerImage.setAttribute("src", "");
+        playerImage.setAttribute("alt", "You picked Paper");
+
         if (computerSelection === "rock") {
             winCount++;
             renderScore();
+            playerPoints.classList.add("points-animation");
         } else if (computerSelection === "paper") {
             tieCount++;
             renderScore();        
         } else if (computerSelection === "scissors") {
             lossCount++;
-            renderScore();   
+            renderScore();
+            computerPoints.classList.add("points-animation");    
         }
 
     } else if (playerSelection === "scissors") {
+        playerImage.setAttribute("src", "");
+        playerImage.setAttribute("alt", "You picked Scissors");
+
         if (computerSelection === "rock") {
             lossCount++;
-            renderScore();   
+            renderScore();
+            computerPoints.classList.add("points-animation");   
         } else if (computerSelection === "paper") {
             winCount++;
             renderScore();
+            playerPoints.classList.add("points-animation");
         } else if (computerSelection === "scissors") {
             tieCount++;
             renderScore();
