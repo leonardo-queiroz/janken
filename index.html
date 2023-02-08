@@ -10,12 +10,28 @@
 </head>
 <body>
     <header id="intro">
-        <h1>Rock, Paper, Scissors!!</h1>
-        <button id="instructions-toggle">How to Play</button>
-        <button id="reset-button">Reset</button>
+        <h1>ROCK, PAPER, SCISSORS!!</h1>
+        <div id="header-buttons">
+            <button class="side-buttons" id="instructions-toggle">HOW TO PLAY</button>
+            <button class="side-buttons" id="reset-button">RESET</button>
+        </div>
         <div class="hidden" id="instructions">
-            <p> - First to get 5 points, wins the game.</p>
-            <img src="" alt="">
+            <p>First to get 5 points, wins the game.</p>
+            <div class="tutorial">                
+                <img class="tutorial-image" src="./resources/Player-Rock.png" alt="Rock">
+                <p>beats</p>
+                <img class="tutorial-image" src="./resources/CPU-Scissors.png" alt="Scissors">
+            </div>
+            <div class="tutorial">                
+                <img class="tutorial-image" src="./resources/Player-Paper.png" alt="Paper">
+                <p>beats</p>
+                <img class="tutorial-image" src="./resources/CPU-Rock.png" alt="Rock">
+            </div>
+            <div class="tutorial">                
+                <img class="tutorial-image" src="./resources/Player-Scissors.png" alt="Scissors">
+                <p>beats</p>
+                <img class="tutorial-image" src="./resources/CPU-Paper.png" alt="Paper">
+            </div>               
         </div>
     </header>
     
@@ -23,21 +39,19 @@
         <h2 class="vertical-text">PLAYER</h2>
         <div class="game-sides" id="player-side">
             <div id="player-selection">
-                <button id="rock">Rock</button>
-                <button id="paper">Paper</button>
-                <button id="scissors">Scissors</button>
+                <img class="player-hand" id="rock" src="./resources/Rock.png" alt="Rock">
+                <img class="player-hand" id="paper" src="./resources/Paper.png" alt="Paper">
+                <img class="player-hand" id="scissors" src="./resources/Scissors.png" alt="Scissors">
             </div>
-            <p class="points hidden" id="player-points">+1 Point!</p>
-            <div class="choice">
-                <img id="player-img" src="" alt="">
-            </div>
+            <p class="points" id="player-points">+1 POINT!</p>
+            <img class="selected-img" id="player-img" src="" alt="">
+            
         </div>
         
         <div class="game-sides" id="computer-side">            
-            <div class="choice">
-                <img id="computer-img" src="" alt="">
-            </div>
-            <p class="points hidden" id="computer-points">+1 Point!</p>
+            <img class="selected-img" id="computer-img" src="" alt="">          
+            <p class="points" id="computer-points">+1 POINT!</p>
+            <div id="cpu-selection"></div>
         </div>
         <h2 class="vertical-text">CPU</h2>
     </div>

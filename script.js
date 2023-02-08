@@ -1,3 +1,18 @@
+const instructions = document.querySelector("#instructions");
+const instructionsButtons = document.querySelector("#instructions-toggle");
+let instructionsClicked = false;
+instructionsButtons.addEventListener("click", function() {
+    if (instructionsClicked === false) {
+        instructions.classList.remove("hidden");
+        instructionsButtons.classList.add("instructions-active");
+        instructionsClicked = true;
+    } else if (instructionsClicked === true) {
+        instructions.classList.add("hidden");
+        instructionsButtons.classList.remove("instructions-active");
+        instructionsClicked = false;
+    }
+});
+
 const resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", function() {
     resetGame();
@@ -49,13 +64,13 @@ function getComputerChoice() {
     const computerChoice = options[randomChoice];
     
     if (computerChoice === "rock") {
-        computerImage.setAttribute("src", "");
+        computerImage.setAttribute("src", "./resources/CPU-Rock.png");
         computerImage.setAttribute("alt", "CPU picked Rock");
     } else if (computerChoice === "paper") {
-        computerImage.setAttribute("src", "");
+        computerImage.setAttribute("src", "./resources/CPU-Paper.png");
         computerImage.setAttribute("alt", "CPU picked Paper");
     } else if (computerChoice === "scissors") {
-        computerImage.setAttribute("src", "");
+        computerImage.setAttribute("src", "./resources/CPU-Scissors.png");
         computerImage.setAttribute("alt", "CPU picked Scissors");
     }
 
@@ -90,7 +105,7 @@ function resetGame() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {        
-        playerImage.setAttribute("src", "");
+        playerImage.setAttribute("src", "./resources/Player-Rock.png");
         playerImage.setAttribute("alt", "You picked Rock");
 
         if (computerSelection === "rock") {
@@ -107,7 +122,7 @@ function playRound(playerSelection, computerSelection) {
         }
 
     } else if (playerSelection === "paper") {
-        playerImage.setAttribute("src", "");
+        playerImage.setAttribute("src", "./resources/Player-Paper.png");
         playerImage.setAttribute("alt", "You picked Paper");
 
         if (computerSelection === "rock") {
@@ -124,7 +139,7 @@ function playRound(playerSelection, computerSelection) {
         }
 
     } else if (playerSelection === "scissors") {
-        playerImage.setAttribute("src", "");
+        playerImage.setAttribute("src", "./resources/Player-Scissors.png");
         playerImage.setAttribute("alt", "You picked Scissors");
 
         if (computerSelection === "rock") {

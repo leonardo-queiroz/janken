@@ -1,3 +1,90 @@
+@font-face {
+    font-family: "PublicPixel";
+    src: url("./resources/PublicPixel.otf");
+}
+
+body {
+    font-family: 'PublicPixel', monospace;
+    margin: 0;
+    background-color: #1F2937;
+}
+
+header {
+    background-color:rgb(10, 10, 10);
+    display: flex;
+    padding: 24px;    
+    height: 56px;
+    justify-content:flex-end;
+    align-items: center;
+    gap: 142px;
+}
+
+header h1 {
+    color: #F9FAF8;
+    margin: 0;
+    font-size: 32px;    
+}
+
+
+.side-buttons {
+    all: unset;
+    color: #E5E7EB;
+    cursor: pointer;
+    font-size: 16px; 
+    padding: 32px 18px;
+    border-radius: 5px;
+}
+
+.side-buttons:hover {
+    background-color: #1F2937;
+    color:#E5E7EB;
+}
+
+
+#instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    background-color: #E5E7EB;
+    color:rgb(10, 10, 10);
+    top: 88px;
+    right: 156px;    
+    height: 350px;    
+    padding: 20px;
+    box-shadow: 5px 5px black;
+    border-top: 10px solid #7f93ae;
+    border-top-left-radius: 5px;
+}
+
+.instructions-active {
+    background-color: #7f93ae;
+    color: rgb(10, 10, 10);
+}
+
+.instructions-active:hover {
+    background-color: #7f93ae;
+    color: rgb(10, 10, 10);
+}
+
+#instructions p {
+    margin-bottom: 18px;
+}
+
+.tutorial {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tutorial-image {
+    padding: 20px;
+    width: auto;
+    height: 52px;
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -9,5 +96,67 @@
 
 #board {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 350px;
+    color: #E5E7EB;
+    margin: 30px 0px;
+    gap: 20px;
+}
+
+.game-sides {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 10px solid #F9FAF8;
+    border-radius: 5px;
+    width: 450px;
+    height: 300px;
+}
+
+#player-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+    height: 300px;
+    border-right: 5px solid #F9FAF8;
+}
+
+.player-hand {
+    cursor: pointer;
+    width: 60px;    
+}
+
+.selected-img {
+    width: 150px;
+    padding: 10px;    
+}
+
+#cpu-selection {
+    width: 105px;
+    height: 300px;
+}
+
+.points {
+    font-weight: 700;    
+    opacity: 0%;
+    position: relative;    
+    animation: moving 1s 1;
+}
+
+@keyframes moving {
+    0% {
+        bottom: -15px;
+    }
+    50% {
+        opacity: 100%;
+        bottom: 25px;
+    }
+
+    100% {
+        bottom: 45px;
+    }
 }
