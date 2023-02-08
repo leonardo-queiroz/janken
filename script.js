@@ -103,8 +103,25 @@ function resetGame() {
     resultsDiv.classList.add("hidden");
 }
 
+function addPoint() {
+    const onePoint = document.createElement("p");
+    onePoint.textContent = "+1 POINT!";
+    onePoint.classList.add("points");
+    onePoint.setAttribute("id", "added-point"); 
+    return onePoint;
+}
+
+function removePoint() {
+    var checkPoint = document.getElementById("added-point");
+    if(checkPoint !== null) {
+        checkPoint.remove();
+    }
+}
+
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "rock") {        
+    removePoint();
+    
+    if (playerSelection === "rock") {    
         playerImage.setAttribute("src", "./resources/Player-Rock.png");
         playerImage.setAttribute("alt", "You picked Rock");
 
@@ -112,13 +129,13 @@ function playRound(playerSelection, computerSelection) {
             tieCount++;
             renderScore();            
         } else if (computerSelection === "paper") {
+            computerPoints.appendChild(addPoint());
             lossCount++;
-            renderScore();
-            computerPoints.classList.add("points-animation");                       
+            renderScore();                                 
         } else if (computerSelection === "scissors") {
+            playerPoints.appendChild(addPoint());
             winCount++;
-            renderScore();
-            playerPoints.classList.add("points-animation");
+            renderScore();        
         }
 
     } else if (playerSelection === "paper") {
@@ -126,16 +143,16 @@ function playRound(playerSelection, computerSelection) {
         playerImage.setAttribute("alt", "You picked Paper");
 
         if (computerSelection === "rock") {
+            playerPoints.appendChild(addPoint());
             winCount++;
-            renderScore();
-            playerPoints.classList.add("points-animation");
+            renderScore();            
         } else if (computerSelection === "paper") {
             tieCount++;
             renderScore();        
         } else if (computerSelection === "scissors") {
+            computerPoints.appendChild(addPoint());
             lossCount++;
-            renderScore();
-            computerPoints.classList.add("points-animation");    
+            renderScore();               
         }
 
     } else if (playerSelection === "scissors") {
@@ -143,13 +160,13 @@ function playRound(playerSelection, computerSelection) {
         playerImage.setAttribute("alt", "You picked Scissors");
 
         if (computerSelection === "rock") {
+            computerPoints.appendChild(addPoint());
             lossCount++;
-            renderScore();
-            computerPoints.classList.add("points-animation");   
+            renderScore();              
         } else if (computerSelection === "paper") {
+            playerPoints.appendChild(addPoint());
             winCount++;
-            renderScore();
-            playerPoints.classList.add("points-animation");
+            renderScore();            
         } else if (computerSelection === "scissors") {
             tieCount++;
             renderScore();
