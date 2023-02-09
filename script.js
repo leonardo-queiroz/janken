@@ -14,22 +14,14 @@ instructionsButtons.addEventListener("click", function() {
 });
 
 const resetButton = document.querySelector("#reset-button");
-resetButton.addEventListener("click", function() {
-    resetGame();
-});
+resetButton.addEventListener("click", resetGame);
 
 const rock = document.querySelector("#rock");
-rock.addEventListener("click", function() {
-    playRound("rock", getComputerChoice());
-});
+rock.addEventListener("click", choiceListener)
 const paper = document.querySelector("#paper");
-paper.addEventListener("click", function() {
-    playRound("paper", getComputerChoice());
-});
+paper.addEventListener("click", choiceListener);
 const scissors = document.querySelector("#scissors");
-scissors.addEventListener("click", function() {
-    playRound("scissors", getComputerChoice());
-});
+scissors.addEventListener("click", choiceListener);
 
 const playerImage = document.querySelector("#player-img");
 const computerImage = document.querySelector("#computer-img");
@@ -41,18 +33,8 @@ const winScore = document.querySelector("#score-win");
 const lossScore = document.querySelector("#score-loss");
 const tieScore = document.querySelector("#score-tie");
 
-const resultsDiv = document.querySelector("#results");
 const finalResults = document.querySelector("#final-results");
-const resetMsg = document.querySelector("#reset-message");
-
-const playAgainBtn = document.querySelector("#play-again");
-playAgainBtn.addEventListener("click", function() {
-   resetGame();
-})
-const notAgainBtn = document.querySelector("#not-again");
-notAgainBtn.addEventListener("click", function() {
-    resultsDiv.classList.add("hidden");
-});
+let checkListener = true;
 
 let winCount = 0;
 let lossCount = 0;
@@ -77,6 +59,10 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+function choiceListener(event) {
+    playRound(event.target.id, getComputerChoice());
+}
+
 function renderScore() {
     winScore.textContent = winCount;
     lossScore.textContent = lossCount;
@@ -88,19 +74,28 @@ function resetGame() {
     lossCount = 0;
     tieCount = 0;
     renderScore();
+
+    rock.classList.remove("disabled");
+    paper.classList.remove("disabled");
+    scissors.classList.remove("disabled");
     
-    rock.disabled = false;
-    paper.disabled = false;
-    scissors.disabled = false;
-    
-    resetMsg.textContent = "";
-    finalResults.textContent = "";
-    
+    if (!checkListener) {
+        rock.addEventListener("click", choiceListener);    
+        paper.addEventListener("click", choiceListener);
+        scissors.addEventListener("click", choiceListener);
+        checkListener = true;
+    }
+
+    playerImage.classList.remove("disabled");
     playerImage.setAttribute("src", "");
     playerImage.setAttribute("alt", "");
+    computerImage.classList.remove("disabled");
     computerImage.setAttribute("src", "");
     computerImage.setAttribute("alt", "");
-    resultsDiv.classList.add("hidden");
+    
+    finalResults.classList.add("hidden");
+    finalResults.classList.remove("results-animation");
+    finalResults.textContent = "";
 }
 
 function addPoint() {
@@ -118,9 +113,22 @@ function removePoint() {
     }
 }
 
+function finishGame() {
+    rock.classList.add("disabled");
+    paper.classList.add("disabled");
+    scissors.classList.add("disabled");
+    playerImage.classList.add("disabled");
+    computerImage.classList.add("disabled");
+
+
+    rock.removeEventListener("click", choiceListener);    
+    paper.removeEventListener("click", choiceListener);
+    scissors.removeEventListener("click", choiceListener);
+    checkListener = false;
+}
+
 function playRound(playerSelection, computerSelection) {
     removePoint();
-    
     if (playerSelection === "rock") {    
         playerImage.setAttribute("src", "./resources/Player-Rock.png");
         playerImage.setAttribute("alt", "You picked Rock");
@@ -173,19 +181,15 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-    if (winCount === 5) {
-        rock.disabled = true;
-        paper.disabled = true;
-        scissors.disabled = true;
-        finalResults.textContent = "YOU WIN!";
-        resetMsg.textContent = "Would you like to play again? I'm going to beat you for sure next time!"
-        resultsDiv.classList.remove("hidden");      
-    } else if (lossCount === 5) {
-        rock.disabled = true;
-        paper.disabled = true;
-        scissors.disabled = true;
-        finalResults.textContent = "YOU LOSE!";        
-        resetMsg.textContent = "Would you like to try one more time? I'll do my best to go easy on you this time."
-        resultsDiv.classList.remove("hidden");        
+    if (winCount === 5) {        
+        finalResults.textContent = "*** YOU WIN! ***";        
+        finalResults.classList.remove("hidden");
+        finalResults.classList.add("results-animation");
+        finishGame();   
+    } else if (lossCount === 5) {        
+        finalResults.textContent = "XxX YOU LOSE! XxX";       
+        finalResults.classList.remove("hidden");
+        finalResults.classList.add("results-animation");
+        finishGame();
     }
 }

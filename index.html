@@ -16,22 +16,30 @@
             <button class="side-buttons" id="reset-button">RESET</button>
         </div>
         <div class="hidden" id="instructions">
-            <p>First to get 5 points, wins the game.</p>
-            <div class="tutorial">                
-                <img class="tutorial-image" src="./resources/Player-Rock.png" alt="Rock">
-                <p>beats</p>
-                <img class="tutorial-image" src="./resources/CPU-Scissors.png" alt="Scissors">
-            </div>
-            <div class="tutorial">                
-                <img class="tutorial-image" src="./resources/Player-Paper.png" alt="Paper">
-                <p>beats</p>
-                <img class="tutorial-image" src="./resources/CPU-Rock.png" alt="Rock">
-            </div>
-            <div class="tutorial">                
-                <img class="tutorial-image" src="./resources/Player-Scissors.png" alt="Scissors">
-                <p>beats</p>
-                <img class="tutorial-image" src="./resources/CPU-Paper.png" alt="Paper">
-            </div>               
+            <p>FIRST TO GET 5 POINTS, WINS THE GAME</p>
+            <div>
+                <div class="tutorial">
+                    <p>&nbsp&nbsp&nbsp&nbspROCK</p>
+                    <img class="tutorial-image" src="./resources/Player-Rock.png" alt="Rock">
+                    <p>BEATS</p>
+                    <img class="tutorial-image" src="./resources/CPU-Scissors.png" alt="Scissors">                
+                    <p>SCISSORS</p>
+                </div>
+                <div class="tutorial">
+                    <p>PAPER</p>
+                    <img class="tutorial-image" src="./resources/Player-Paper.png" alt="Paper">
+                    <p>BEATS</p>
+                    <img class="tutorial-image" src="./resources/CPU-Rock.png" alt="Rock">                          
+                    <p>ROCK</p>
+                </div>
+                <div class="tutorial">
+                    <p>SCISSORS</p>
+                    <img class="tutorial-image" src="./resources/Player-Scissors.png" alt="Scissors">
+                    <p>BEATS</p>
+                    <img class="tutorial-image" src="./resources/CPU-Paper.png" alt="Paper">                          
+                    <p>PAPER&nbsp&nbsp</p>
+                </div>
+            </div>     
         </div>
     </header>
     
@@ -71,11 +79,13 @@
         </div>
     </div>
     
-    <div class="hidden" id="results">
-        <p id="final-results"></p>
-        <p id="reset-message"></p>
-        <button id="play-again">YES</button>
-        <button id="not-again">NO</button>
-    </div>
+    <p class="hidden" id="final-results"></p>
+
+    <footer>
+        <div>
+            <p>LEONARDO QUEIROZ <span>©</span> 2023</p>
+        </div>
+    </footer>
+    
 </body>
 </html>

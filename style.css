@@ -51,11 +51,13 @@ header h1 {
     color:rgb(10, 10, 10);
     top: 88px;
     right: 156px;    
-    height: 350px;    
+    height: 350px;
+    width: 600px;   
     padding: 20px;
     box-shadow: 5px 5px black;
     border-top: 10px solid #7f93ae;
     border-top-left-radius: 5px;
+    z-index: 1;
 }
 
 .instructions-active {
@@ -75,23 +77,15 @@ header h1 {
 .tutorial {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    width: 580px;
 }
 
 .tutorial-image {
     padding: 20px;
     width: auto;
     height: 52px;
-}
-
-.hidden {
-    visibility: hidden;
-}
-
-.vertical-text {
-    writing-mode: vertical-lr;
-    text-orientation: upright;
 }
 
 #board {
@@ -187,14 +181,86 @@ header h1 {
 .score-points {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     font-size: 20px;
     width: 180px;
-    border: 5px solid #E5E7EB;
+    height: 140px;
+    border: 5px solid #E5E7EB;  
+}
+
+.score-points > p {
+    margin: 0px;
 }
 
 .show-points {
     font-size: 25px;
     font-weight: 700;
+}
+
+#final-results {
+    position: relative;    
+    color: #E5E7EB;
+    font-size: 60px;
+    text-align: center;
+    padding: 10px;
+    margin: 32px;
+    opacity: 0;
+}
+
+.results-animation {
+    animation: appearing 1.5s 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes appearing {
+    0% {
+        opacity: 0;
+        bottom: -40px;      
+    }
+    100% {
+        opacity: 1;
+        bottom: 0px;                
+    }
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;   
+    bottom: 0px;   
+}
+
+footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    color:#F9FAF8;
+    font-size: 18px;
+    background-color:rgb(10, 10, 10);  
+    height: 60px;
+    padding: 5px 62px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+footer span {
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor:default;
+}
+
+.vertical-text {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
 }
