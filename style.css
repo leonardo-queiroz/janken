@@ -5,59 +5,59 @@
 
 body {
     font-family: 'PublicPixel', monospace;
-    margin: 0;
     background-color: #1F2937;
+    margin: 0;
 }
 
 header {
-    background-color:rgb(10, 10, 10);
     display: flex;
-    padding: 24px;    
-    height: 56px;
     justify-content:flex-end;
     align-items: center;
     gap: 142px;
+    background-color:rgb(10, 10, 10);
+    height: 56px;
+    padding: 24px;    
 }
 
 header h1 {
     color: #F9FAF8;
+    font-size: 32px;  
     margin: 0;
-    font-size: 32px;    
 }
 
 
 .side-buttons {
     all: unset;
     color: #E5E7EB;
-    cursor: pointer;
     font-size: 16px; 
+    cursor: pointer;
     padding: 32px 18px;
     border-radius: 5px;
 }
 
 .side-buttons:hover {
-    background-color: #1F2937;
     color:#E5E7EB;
+    background-color: #1F2937;
 }
 
 
 #instructions {
+    position: absolute;
+    top: 88px;
+    right: 156px;    
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    background-color: #E5E7EB;
     color:rgb(10, 10, 10);
-    top: 88px;
-    right: 156px;    
-    height: 350px;
+    background-color: #E5E7EB;
     width: 600px;   
+    height: 350px;
     padding: 20px;
-    box-shadow: 5px 5px black;
     border-top: 10px solid #7f93ae;
     border-top-left-radius: 5px;
-    z-index: 1;
+    box-shadow: 5px 5px black;
 }
 
 .instructions-active {
@@ -75,38 +75,37 @@ header h1 {
 }
 
 .tutorial {
-    display: flex;
-    flex-direction: row;
+    display: flex;    
     justify-content: center;
     align-items: center;
     width: 580px;
 }
 
 .tutorial-image {
-    padding: 20px;
     width: auto;
     height: 52px;
+    padding: 20px;
 }
 
 #board {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
     width: 100%;
     height: 350px;
     color: #E5E7EB;
     margin: 30px 0px;
-    gap: 20px;
 }
 
 .game-sides {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 10px ridge #F9FAF8;
-    border-radius: 5px;
     width: 450px;
     height: 300px;
+    border: 10px ridge #F9FAF8;
+    border-radius: 5px;
 }
 
 #player-side {
@@ -148,10 +147,10 @@ header h1 {
 }
 
 .points {
+    position: relative;    
     font-weight: 700;
     font-size: 18px;   
     opacity: 0;
-    position: relative;    
     animation: moving 0.8s 1;
     animation-fill-mode: forwards;
 }
@@ -173,9 +172,9 @@ header h1 {
 }
 
 #score {
-    color: #E5E7EB;
     display: flex;
     justify-content: center;    
+    color: #E5E7EB;
 }
 
 .score-points {
@@ -203,8 +202,8 @@ header h1 {
     color: #E5E7EB;
     font-size: 60px;
     text-align: center;
-    padding: 10px;
     margin: 32px;
+    padding: 10px;
     opacity: 0;
 }
 
@@ -225,12 +224,12 @@ header h1 {
 }
 
 footer {
-    width: 100%;
+    position: fixed;   
+    bottom: 0px;   
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;   
-    bottom: 0px;   
+    width: 100%;
 }
 
 footer div {
@@ -238,12 +237,17 @@ footer div {
     justify-content: center;
     align-items: center;    
     color:#F9FAF8;
-    font-size: 18px;
     background-color:rgb(10, 10, 10);  
+    font-size: 18px;
     height: 60px;
     padding: 5px 62px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+}
+
+footer a {
+    color: #F9FAF8;
+    text-decoration: none;
 }
 
 footer span {
@@ -257,7 +261,7 @@ footer span {
 
 .disabled {
     opacity: 0.5;
-    cursor:default;
+    cursor: default;
 }
 
 .vertical-text {

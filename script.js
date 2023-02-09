@@ -2,16 +2,17 @@ const instructions = document.querySelector("#instructions");
 const instructionsButtons = document.querySelector("#instructions-toggle");
 let instructionsClicked = false;
 instructionsButtons.addEventListener("click", function() {
-    if (instructionsClicked === false) {
+    if (!instructionsClicked) {
         instructions.classList.remove("hidden");
         instructionsButtons.classList.add("instructions-active");
         instructionsClicked = true;
-    } else if (instructionsClicked === true) {
+    } else {
         instructions.classList.add("hidden");
         instructionsButtons.classList.remove("instructions-active");
         instructionsClicked = false;
     }
 });
+
 
 const resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", resetGame);
@@ -22,6 +23,9 @@ const paper = document.querySelector("#paper");
 paper.addEventListener("click", choiceListener);
 const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", choiceListener);
+
+const board = document.querySelector("#board");
+const score = document.querySelector("#score");
 
 const playerImage = document.querySelector("#player-img");
 const computerImage = document.querySelector("#computer-img");
@@ -34,6 +38,7 @@ const lossScore = document.querySelector("#score-loss");
 const tieScore = document.querySelector("#score-tie");
 
 const finalResults = document.querySelector("#final-results");
+
 let checkListener = true;
 
 let winCount = 0;
@@ -74,10 +79,6 @@ function resetGame() {
     lossCount = 0;
     tieCount = 0;
     renderScore();
-
-    rock.classList.remove("disabled");
-    paper.classList.remove("disabled");
-    scissors.classList.remove("disabled");
     
     if (!checkListener) {
         rock.addEventListener("click", choiceListener);    
@@ -85,11 +86,15 @@ function resetGame() {
         scissors.addEventListener("click", choiceListener);
         checkListener = true;
     }
-
-    playerImage.classList.remove("disabled");
+    
+    board.classList.remove("disabled");
+    score.classList.remove("disabled");
+    rock.classList.remove("disabled");
+    paper.classList.remove("disabled");
+    scissors.classList.remove("disabled");
+   
     playerImage.setAttribute("src", "");
-    playerImage.setAttribute("alt", "");
-    computerImage.classList.remove("disabled");
+    playerImage.setAttribute("alt", "");    
     computerImage.setAttribute("src", "");
     computerImage.setAttribute("alt", "");
     
@@ -114,13 +119,12 @@ function removePoint() {
 }
 
 function finishGame() {
+    board.classList.add("disabled");
+    score.classList.add("disabled");
     rock.classList.add("disabled");
     paper.classList.add("disabled");
-    scissors.classList.add("disabled");
-    playerImage.classList.add("disabled");
-    computerImage.classList.add("disabled");
-
-
+    scissors.classList.add("disabled");  
+    
     rock.removeEventListener("click", choiceListener);    
     paper.removeEventListener("click", choiceListener);
     scissors.removeEventListener("click", choiceListener);
