@@ -6,3 +6,5 @@ Now with a Graphical User Interface (GUI). This page uses a lot of DOM manipulat
 v1.0:
 This project uses alert boxes to communicate with the player. A Graphical User Interface (GUI) will be created later in the course.
 
+To do:
+- Use responsive web design to display the page properly on different screen sizes.
