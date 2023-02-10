@@ -53,12 +53,21 @@ function getComputerChoice() {
     if (computerChoice === "rock") {
         computerImage.setAttribute("src", "./resources/CPU-Rock.png");
         computerImage.setAttribute("alt", "CPU picked Rock");
+        computerImage.classList.remove("img-animation");
+        void playerImage.offsetWidth;
+        computerImage.classList.add("img-animation");
     } else if (computerChoice === "paper") {
         computerImage.setAttribute("src", "./resources/CPU-Paper.png");
         computerImage.setAttribute("alt", "CPU picked Paper");
+        computerImage.classList.remove("img-animation");
+        void playerImage.offsetWidth;
+        computerImage.classList.add("img-animation");
     } else if (computerChoice === "scissors") {
         computerImage.setAttribute("src", "./resources/CPU-Scissors.png");
         computerImage.setAttribute("alt", "CPU picked Scissors");
+        computerImage.classList.remove("img-animation");
+        void playerImage.offsetWidth;
+        computerImage.classList.add("img-animation");
     }
 
     return computerChoice;
@@ -136,6 +145,9 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {    
         playerImage.setAttribute("src", "./resources/Player-Rock.png");
         playerImage.setAttribute("alt", "You picked Rock");
+        playerImage.classList.remove("img-animation");
+        void playerImage.offsetWidth;
+        playerImage.classList.add("img-animation");
 
         if (computerSelection === "rock") {
             tieCount++;
@@ -153,6 +165,9 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "paper") {
         playerImage.setAttribute("src", "./resources/Player-Paper.png");
         playerImage.setAttribute("alt", "You picked Paper");
+        playerImage.classList.remove("img-animation");
+        void playerImage.offsetWidth;
+        playerImage.classList.add("img-animation");
 
         if (computerSelection === "rock") {
             playerPoints.appendChild(addPoint());
@@ -170,6 +185,9 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "scissors") {
         playerImage.setAttribute("src", "./resources/Player-Scissors.png");
         playerImage.setAttribute("alt", "You picked Scissors");
+        playerImage.classList.remove("img-animation");
+        void playerImage.offsetWidth;
+        playerImage.classList.add("img-animation");
 
         if (computerSelection === "rock") {
             computerPoints.appendChild(addPoint());

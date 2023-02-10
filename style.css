@@ -5,8 +5,13 @@
 
 body {
     font-family: 'PublicPixel', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #1F2937;
     margin: 0;
+    height: 100vh;
+
 }
 
 header {
@@ -48,12 +53,12 @@ header h1 {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color:rgb(10, 10, 10);
     background-color: #E5E7EB;
     width: 600px;   
-    height: 350px;
+    height: 325px;
     padding: 20px;
     border-top: 10px solid #7f93ae;
     border-top-left-radius: 5px;
@@ -133,7 +138,20 @@ header h1 {
 
 .selected-img {
     width: 150px;
-    padding: 10px;    
+    padding: 10px;       
+}
+
+.img-animation {
+    animation: enlarge 0.3s 1;    
+}
+
+@keyframes enlarge {
+   from {
+    transform: scale(1.7);
+   }
+   to {
+    transform: scale(1);
+   }
 }
 
 #cpu-selection {
@@ -201,6 +219,7 @@ header h1 {
     position: relative;    
     color: #E5E7EB;
     font-size: 60px;
+    height: 62px;
     text-align: center;
     margin: 32px;
     padding: 10px;
@@ -223,9 +242,7 @@ header h1 {
     }
 }
 
-footer {
-    position: fixed;   
-    bottom: 0px;   
+footer {    
     display: flex;
     justify-content: center;
     align-items: center;
